@@ -7,4 +7,4 @@ file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "src/sources/*.c")
 
 add_library(KiberCollections STATIC ${SOURCES})
 
-target_include_directories(KiberCollections PUBLIC include)
+target_include_directories(KiberCollections PUBLIC "src/include")
