@@ -1,13 +1,13 @@
 #include <stdlib.h>
 #include "LinkedList.h"
 
-struct LinkedList *LinkedList_create() {
-    struct LinkedList *a = malloc(sizeof(struct LinkedList));
+LinkedList *LinkedList_create() {
+    LinkedList *a = malloc(sizeof(struct LinkedList));
     a->head = NULL;
     return a;
 }
 
-void LinkedList_push_back(struct LinkedList *list, void *data) {
+void LinkedList_push_back(LinkedList *list, void *data) {
     struct LinkedListNode *node = malloc(sizeof(struct LinkedListNode));
     node->data = data;
     node->next = NULL;
@@ -22,14 +22,14 @@ void LinkedList_push_back(struct LinkedList *list, void *data) {
     last->next = node;
 }
 
-void LinkedList_push_front(struct LinkedList *list, void *data) {
+void LinkedList_push_front(LinkedList *list, void *data) {
     struct LinkedListNode *node = malloc(sizeof(struct LinkedListNode));
     node->data = data;
     node->next = list->head;
     list->head = node;
 }
 
-void *LinkedList_pop_back(struct LinkedList *list) {
+void *LinkedList_pop_back(LinkedList *list) {
     if (list->head == NULL) {
         return NULL;
     }
@@ -49,7 +49,7 @@ void *LinkedList_pop_back(struct LinkedList *list) {
     return tmp;
 }
 
-void *LinkedList_pop_front(struct LinkedList *list) {
+void *LinkedList_pop_front(LinkedList *list) {
     if (list->head == NULL) {
         return NULL;
     }
@@ -60,7 +60,7 @@ void *LinkedList_pop_front(struct LinkedList *list) {
     return tmp;
 }
 
-unsigned int LinkedList_length(const struct LinkedList *list) {
+unsigned int LinkedList_length(const LinkedList *list) {
     unsigned int length = 0;
     const struct LinkedListNode *node = list->head;
     while (node != NULL) {
@@ -70,7 +70,7 @@ unsigned int LinkedList_length(const struct LinkedList *list) {
     return length;
 }
 
-void *LinkedList_get(const struct LinkedList *list, unsigned int index) {
+void *LinkedList_get(const LinkedList *list, unsigned int index) {
     for (const struct LinkedListNode *node = list->head; node != NULL; node = node->next) {
         if (index == 0) {
             return node->data;
@@ -80,7 +80,7 @@ void *LinkedList_get(const struct LinkedList *list, unsigned int index) {
     return NULL;
 }
 
-void *LinkedList_set(const struct LinkedList *list, unsigned int index, void *data) {
+void *LinkedList_set(const LinkedList *list, unsigned int index, void *data) {
     for (struct LinkedListNode *node = list->head; node != NULL; node = node->next) {
         if (index == 0) {
             void *tmp = node->data;
@@ -92,7 +92,7 @@ void *LinkedList_set(const struct LinkedList *list, unsigned int index, void *da
     return NULL;
 }
 
-void LinkedList_free(struct LinkedList *list, void (*dealloc)(void *)) {
+void LinkedList_free(LinkedList *list, void (*dealloc)(void *)) {
     while (list->head != NULL) {
         dealloc(LinkedList_pop_front(list));
     }

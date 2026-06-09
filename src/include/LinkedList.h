@@ -7,26 +7,26 @@ struct LinkedListNode {
     struct LinkedListNode *next;
 };
 
-struct LinkedList {
+typedef struct LinkedList {
     struct LinkedListNode *head;
-};
+} LinkedList;
 
-struct LinkedList *LinkedList_create();
+LinkedList *LinkedList_create();
 
-void LinkedList_push_back(struct LinkedList *list, void *data);
+void LinkedList_push_back(LinkedList *list, void *data);
 
-void LinkedList_push_front(struct LinkedList *list, void *data);
+void LinkedList_push_front(LinkedList *list, void *data);
 
-void *LinkedList_pop_back(struct LinkedList *list);
+void *LinkedList_pop_back(LinkedList *list);
 
-void *LinkedList_pop_front(struct LinkedList *list);
+void *LinkedList_pop_front(LinkedList *list);
 
-unsigned int LinkedList_length(const struct LinkedList *list);
+unsigned int LinkedList_length(const LinkedList *list);
 
-void *LinkedList_get(const struct LinkedList *list, unsigned int index);
+void *LinkedList_get(const LinkedList *list, unsigned int index);
 
-void *LinkedList_set(const struct LinkedList *list, unsigned int index, void *data);
+void *LinkedList_set(const LinkedList *list, unsigned int index, void *data);
 
-void LinkedList_free(struct LinkedList *list, void (*dealloc)(void *));
+void LinkedList_free(LinkedList *list, void (*dealloc)(void *));
 
 #endif
