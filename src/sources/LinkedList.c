@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "LinkedList.h"
+#include "../include/LinkedList.h"
 
 struct LinkedList *LinkedList_create() {
     struct LinkedList *a = malloc(sizeof(struct LinkedList));

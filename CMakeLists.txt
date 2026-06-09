@@ -3,6 +3,8 @@ project(KiberCollections C)
 
 set(CMAKE_C_STANDARD 11)
 
-file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "src/*.c" "src/*.h")
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "src/sources/*.c")
 
-add_executable(KiberCollections ${SOURCES})
+add_library(KiberCollections STATIC ${SOURCES})
+
+target_include_directories(KiberCollections PUBLIC include)
