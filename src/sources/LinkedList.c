@@ -1,10 +1,10 @@
 #include <stdlib.h>
 #include "LinkedList.h"
 
-LinkedList *LinkedList_create() {
-    LinkedList *a = malloc(sizeof(struct LinkedList));
-    a->head = NULL;
-    return a;
+LinkedList LinkedList_create() {
+    return (LinkedList){
+        .head = NULL
+    };
 }
 
 void LinkedList_push_back(LinkedList *list, void *data) {

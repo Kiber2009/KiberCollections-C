@@ -11,7 +11,7 @@ typedef struct LinkedList {
     struct LinkedListNode *head;
 } LinkedList;
 
-LinkedList *LinkedList_create();
+LinkedList LinkedList_create();
 
 void LinkedList_push_back(LinkedList *list, void *data);
 
